@@ -1,0 +1,4 @@
+name: NoNetherPortalTrap
+version: '${projectVersion}'
+main: net.okocraft.nonetherportaltrap.Main
+api-version: 1.19
