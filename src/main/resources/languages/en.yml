@@ -1,2 +1,2 @@
-stay-if-trapped: "§7You are in nether portal. If you wait there 10 seconds more, server will teleport you to spawn point."
+stay-if-trapped: "§7You are in nether portal. If you wait there {0} §7seconds more, server will teleport you to spawn point."
 teleport-to-spawn-point: "§7You are teleported to default level spawn point."
