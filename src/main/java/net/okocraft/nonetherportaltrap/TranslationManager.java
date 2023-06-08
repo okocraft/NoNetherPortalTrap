@@ -6,6 +6,11 @@ import com.github.siroshun09.configapi.yaml.YamlConfiguration;
 import com.github.siroshun09.translationloader.ConfigurationLoader;
 import com.github.siroshun09.translationloader.TranslationLoader;
 import com.github.siroshun09.translationloader.directory.TranslationDirectory;
+import net.kyori.adventure.key.Key;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.io.IOException;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
@@ -13,11 +18,8 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
-import net.kyori.adventure.key.Key;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 class TranslationManager {
 
@@ -84,7 +86,8 @@ class TranslationManager {
 
         Configuration source;
 
-        try (var input = ResourceUtils.getInputStreamFromJar(jarFile, "languages/" + strLocale + ".yml")) {
+        try (var jarFile = new JarFile(this.jarFile.toFile());
+             var input = ResourceUtils.getInputStreamFromJar(jarFile, "languages/" + strLocale + ".yml")) {
             source = YamlConfiguration.loadFromInputStream(input);
         }
 
