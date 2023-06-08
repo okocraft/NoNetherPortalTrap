@@ -39,6 +39,9 @@ tasks {
     }
     shadowJar {
         minimize()
-        relocate("com.github.siroshun09", "${group}.${name.toLowerCase()}.lib")
+        val libPkg =  "net.okocraft.nonetherportaltrap.lib"
+
+        relocate("com.github.siroshun09", libPkg)
+        relocate("net.kyori", libPkg)
     }
 }
